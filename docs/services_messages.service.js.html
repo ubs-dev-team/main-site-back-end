@@ -96,7 +96,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomLogger.html">CustomLogger</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="msg_ctrl.html">msg_ctrl</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Classes</h3><ul><li><a href="pre_routes.html">pre_routes</a></li><li><a href="Response.html">Response</a></li></ul></div><div class="category"><h2>Schemas</h2><h3>Classes</h3><ul><li><a href="MessageSchema.html">MessageSchema</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="user_service.html">user_service</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomLogger.html">CustomLogger</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="msg_ctrl.html">msg_ctrl</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Classes</h3><ul><li><a href="pre_routes.html">pre_routes</a></li><li><a href="Response.html">Response</a></li></ul></div><div class="category"><h2>Schemas</h2><h3>Classes</h3><ul><li><a href="MessageSchema.html">MessageSchema</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="msg_service.html">msg_service</a></li></ul></div>
                 
             </nav>
         </div>
@@ -131,15 +131,15 @@ const Msg = require('../database/models/message.model');
  * const newmsg = await msg_service.CREATE(msgData)
  * res.status(201).send(newmsg)
  */
-class user_service {
+class msg_service {
   /**
    * Creates a new msg
    * @method
-   * @param {Objcet} msgData - New msg data
+   * @param {Object} msgData - New msg data
    * @returns {Msg}
    */
   async CREATE(msgData) {
-    const newMsg = await User.create(msgData);
+    const newMsg = await Msg.create(msgData);
     return newMsg;
   }
 
@@ -158,8 +158,8 @@ class user_service {
    * @returns {Msg}
    */
   async GET_BY_ID(msgId) {
-    const msg = await msg.findById(msgId);
-    return user;
+    const msg = await Msg.findById(msgId);
+    return msg;
   }
 
   /**
@@ -168,7 +168,7 @@ class user_service {
    * @returns {Object} status object for the update operation
    */
   async UPDATE(updateData) {
-    const updateMsg = await User.updateMany(
+    const updateMsg = await Msg.updateMany(
       {},
       { $set: updateData },
       { new: true }
@@ -178,31 +178,31 @@ class user_service {
 
   /**
    *
-   * @param {String} userId - ID of user to be updated
+   * @param {String} msgId - ID of msg to be updated
    * @param {Object} updateData - Object containing fields to be edited
-   * @returns {User}
+   * @returns {Msg}
    */
-  async UPDATE_BY_ID(userId, updateData) {
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: userId },
+  async UPDATE_BY_ID(msgId, updateData) {
+    const updateMsg = await Msg.findOneAndUpdate(
+      { _id: msgId },
       { $set: updateData },
       { new: true }
     );
-    return updatedUser;
+    return updateMsg;
   }
 
   /**
    *
-   * @param {String} userId - ID of user to be deletd
-   * @returns {User}
+   * @param {String} msgId - ID of msg to be deletd
+   * @returns {Msg}
    */
-  async DELETE(userId) {
-    const deleteResponse = await User.findByIdAndDelete(userId);
+  async DELETE(msgId) {
+    const deleteResponse = await Msg.findByIdAndDelete(msgId);
     return deleteResponse;
   }
 }
 
-module.exports = new user_service();
+module.exports = new msg_service();
 </code></pre>
         </article>
     </section>

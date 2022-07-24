@@ -94,7 +94,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomLogger.html">CustomLogger</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="msg_ctrl.html">msg_ctrl</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Classes</h3><ul><li><a href="pre_routes.html">pre_routes</a></li><li><a href="Response.html">Response</a></li></ul></div><div class="category"><h2>Schemas</h2><h3>Classes</h3><ul><li><a href="MessageSchema.html">MessageSchema</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="user_service.html">user_service</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomLogger.html">CustomLogger</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="msg_ctrl.html">msg_ctrl</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Classes</h3><ul><li><a href="pre_routes.html">pre_routes</a></li><li><a href="Response.html">Response</a></li></ul></div><div class="category"><h2>Schemas</h2><h3>Classes</h3><ul><li><a href="MessageSchema.html">MessageSchema</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="msg_service.html">msg_service</a></li></ul></div>
                 
             </nav>
         </div>
@@ -137,20 +137,50 @@
 <li><a href="../CONTRIBUTING.md">Contributing</a></li>
 </ul>
 <h2>About <a name = "about"></a></h2>
-<p>Write about 1-2 paragraphs describing the purpose of your project.</p>
+<p>Unique blossom backend Repo</p>
 <h2>Getting Started <a name = "getting_started"></a></h2>
-<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See <a href="#deployment">deployment</a> for notes on how to deploy the project on a live system.</p>
-<h3>Prerequisites</h3>
-<p>What things you need to install the software and how to install them.</p>
-<pre class="prettyprint source"><code>Give examples
+<p>for documentation check the <em>/doc</em> folder and open <em>index.html</em> in a browser</p>
+<h3>Folder structure</h3>
+<p>This is what the main folder (src) looks like</p>
+<pre class="prettyprint source"><code>C:.
+│   server.js
+│
+├───config
+│       env.config.js
+│
+├───controllers
+│       messages.controller.js
+│
+├───database
+│   │   connect.js
+│   │
+│   └───models
+│           message.model.js
+│
+├───middlewares
+│       error.middleware.js
+│       pre_routes.middleware.js
+│       response.middleware.js
+│
+├───routes
+│       messages.routes.js
+│       router.js
+│
+├───services
+│       messages.service.js
+│
+└───utils
+        asyncHandler.utils.js
+        customError.utils.js
+        customLogger.utils.js
+        customResponse.utils.js
 </code></pre>
 <h3>Installing</h3>
-<p>A step by step series of examples that tell you how to get a development env running.</p>
-<p>Say what the step will be</p>
-<pre class="prettyprint source"><code>Give the example
+<p>Clone repo to your local machine and run</p>
+<pre class="prettyprint source lang-javascript"><code>    npm install
 </code></pre>
-<p>And repeat</p>
-<pre class="prettyprint source"><code>until finished
+<p>or</p>
+<pre class="prettyprint source lang-javascript"><code>yarn;
 </code></pre>
 <p>End with an example of getting some data out of the system or using it for a little demo.</p>
 <h2>Usage <a name = "usage"></a></h2>

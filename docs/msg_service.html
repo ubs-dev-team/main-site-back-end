@@ -5,7 +5,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TRANSOL SERVER API msg_ctrl</title>
+  <title>TRANSOL SERVER API msg_service</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -102,7 +102,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Class</p>
-                    <h1>msg_ctrl</h1>
+                    <h1>msg_service</h1>
                 </header>
                 
 
@@ -113,9 +113,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>msg_ctrl<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>msg_service<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>msg controller for route handling</p></div>
+            <div class="class-description"><p>Message service class
+Handles all msg services</p></div>
         
     
 </header>
@@ -134,12 +135,12 @@
 
 
     
-    <h4 class="name" id="msg_ctrl">
-        <a class="href-link" href="#msg_ctrl">#</a>
+    <h4 class="name" id="msg_service">
+        <a class="href-link" href="#msg_service">#</a>
         
         <span class="code-name">
             
-                new msg_ctrl<span class="signature">()</span><span class="type-signature"></span>
+                new msg_service<span class="signature">()</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -197,9 +198,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line18">line 18</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line19">line 19</a>
             </span>
         </p>
     
@@ -227,10 +228,10 @@
 
     <h5>Example</h5>
     
-        <p class="code-caption">Using the controller for sample route</p>
+        <p class="code-caption">Creating a new msg</p>
     
     
-        <pre class="prettyprint"><code>const msg_ctrl = require('path/to/controller')const msgRoute = express.Router()msgRoute.route('/api/messages').use(msg_ctrl.CREATE)</code></pre>
+        <pre class="prettyprint"><code>// calling in msg.controller.jsconst msg_service = require('path/to/msg_service.js')const msgData = req.bodyconst newmsg = await msg_service.CREATE(msgData)res.status(201).send(newmsg)</code></pre>
     
 
 
@@ -274,7 +275,7 @@
         
         <span class="code-name">
             
-                CREATE<span class="signature">(req, res)</span><span class="type-signature"></span>
+                CREATE<span class="signature">(msgData)</span><span class="type-signature"> &rarr; {Msg}</span>
             
         </span>
     </h4>
@@ -283,7 +284,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Creates a new msg</p>
     </div>
     
 
@@ -321,13 +322,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>msgData</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">req</code>
+<code class="param-type">Object</code>
 
 
   
@@ -337,32 +338,7 @@
 
   
 
-  <td class="description last"><p>request Object</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>res</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">res</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>response Object</p></td>
+  <td class="description last"><p>New msg data</p></td>
 </tr>
 
 
@@ -408,9 +384,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line25">line 25</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line26">line 26</a>
             </span>
         </p>
     
@@ -441,8 +417,14 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>Newly created msg</p></div>
     
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Msg</code>
+
+
+    </div>
     
 </div>
 
@@ -468,7 +450,7 @@
         
         <span class="code-name">
             
-                DELETE<span class="signature">(req, res)</span><span class="type-signature"></span>
+                DELETE<span class="signature">(msgId)</span><span class="type-signature"> &rarr; {Msg}</span>
             
         </span>
     </h4>
@@ -515,13 +497,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>msgId</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">*</code>
+<code class="param-type">String</code>
 
 
   
@@ -531,32 +513,7 @@
 
   
 
-  <td class="description last"><p>request Object</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>res</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Response Object</p></td>
+  <td class="description last"><p>ID of msg to be deletd</p></td>
 </tr>
 
 
@@ -602,9 +559,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line91">line 91</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line84">line 84</a>
             </span>
         </p>
     
@@ -635,8 +592,14 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>Delete details of deleted msg</p></div>
     
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Msg</code>
+
+
+    </div>
     
 </div>
 
@@ -662,7 +625,7 @@
         
         <span class="code-name">
             
-                GET<span class="signature">(req, res)</span><span class="type-signature"></span>
+                GET<span class="signature">()</span><span class="type-signature"> &rarr; {Array.&lt;Msg>}</span>
             
         </span>
     </h4>
@@ -671,7 +634,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Gets all Msg (no params needed)</p>
     </div>
     
 
@@ -682,82 +645,6 @@
 
 
 
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>req</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>request Object</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>res</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Response Object</p></td>
-</tr>
-
-
-        
-        </tbody>
-    </table>
-</div>
 
 
 
@@ -796,9 +683,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line39">line 39</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line35">line 35</a>
             </span>
         </p>
     
@@ -829,8 +716,14 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>List of all messages</p></div>
     
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Array.&lt;Msg></code>
+
+
+    </div>
     
 </div>
 
@@ -856,7 +749,7 @@
         
         <span class="code-name">
             
-                GET_BY_ID<span class="signature">(req, res)</span><span class="type-signature"></span>
+                GET_BY_ID<span class="signature">(msgId)</span><span class="type-signature"> &rarr; {Msg}</span>
             
         </span>
     </h4>
@@ -865,7 +758,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Gets a single msg by ID</p>
     </div>
     
 
@@ -903,13 +796,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>msgId</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">*</code>
+<code class="param-type">String</code>
 
 
   
@@ -919,32 +812,7 @@
 
   
 
-  <td class="description last"><p>request Object</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>res</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Response Object</p></td>
+  <td class="description last"><p>ID of single msg to be fetched</p></td>
 </tr>
 
 
@@ -990,9 +858,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line50">line 50</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line45">line 45</a>
             </span>
         </p>
     
@@ -1023,8 +891,14 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>Single msg by ID</p></div>
     
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Msg</code>
+
+
+    </div>
     
 </div>
 
@@ -1050,7 +924,7 @@
         
         <span class="code-name">
             
-                UPDATE<span class="signature">(req, res)</span><span class="type-signature"></span>
+                UPDATE<span class="signature">(updateData)</span><span class="type-signature"> &rarr; {Object}</span>
             
         </span>
     </h4>
@@ -1059,7 +933,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Updates all msg</p>
     </div>
     
 
@@ -1097,13 +971,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>updateData</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">*</code>
+<code class="param-type">Object</code>
 
 
   
@@ -1113,32 +987,7 @@
 
   
 
-  <td class="description last"><p>request Object</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>res</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Response Object</p></td>
+  <td class="description last"><p>Object containing fields to be updated for all msg</p></td>
 </tr>
 
 
@@ -1184,9 +1033,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line66">line 66</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line55">line 55</a>
             </span>
         </p>
     
@@ -1217,8 +1066,16 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>update stats of all messages</p></div>
+    <div class='param-desc column is-7'><p>status object for the update operation</p></div>
     
+    
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Object</code>
+
+
+    </div>
     
 </div>
 
@@ -1244,7 +1101,7 @@
         
         <span class="code-name">
             
-                UPDATE_BY_ID<span class="signature">(req, res)</span><span class="type-signature"></span>
+                UPDATE_BY_ID<span class="signature">(msgId, updateData)</span><span class="type-signature"> &rarr; {Msg}</span>
             
         </span>
     </h4>
@@ -1291,13 +1148,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>req</code></td>
+      <td class="name"><code>msgId</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">*</code>
+<code class="param-type">String</code>
 
 
   
@@ -1307,7 +1164,7 @@
 
   
 
-  <td class="description last"><p>request Object</p></td>
+  <td class="description last"><p>ID of msg to be updated</p></td>
 </tr>
 
 
@@ -1316,13 +1173,13 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>res</code></td>
+      <td class="name"><code>updateData</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">*</code>
+<code class="param-type">Object</code>
 
 
   
@@ -1332,7 +1189,7 @@
 
   
 
-  <td class="description last"><p>Response Object</p></td>
+  <td class="description last"><p>Object containing fields to be edited</p></td>
 </tr>
 
 
@@ -1378,9 +1235,9 @@
 
     
         <p class="tag-source">
-            <a href="controllers_messages.controller.js.html" class="button">View Source</a>
+            <a href="services_messages.service.js.html" class="button">View Source</a>
             <span>
-                <a href="controllers_messages.controller.js.html">controllers/messages.controller.js</a>, <a href="controllers_messages.controller.js.html#line78">line 78</a>
+                <a href="services_messages.service.js.html">services/messages.service.js</a>, <a href="services_messages.service.js.html#line70">line 70</a>
             </span>
         </p>
     
@@ -1411,8 +1268,14 @@
 
 <div class="columns">
     
-    <div class='param-desc column is-7'><p>Updated msg</p></div>
     
+    <div class='column is-5 has-text-left'>
+        <label>Type: </label>
+        
+<code class="param-type">Msg</code>
+
+
+    </div>
     
 </div>
 

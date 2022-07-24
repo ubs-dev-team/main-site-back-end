@@ -9,34 +9,63 @@
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Unique blossom backend Repo
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+for documentation check the _/doc_ folder and open _index.html_ in a browser
 
-### Prerequisites
+### Folder structure
 
-What things you need to install the software and how to install them.
+This is what the main folder (src) looks like
 
 ```
-Give examples
+C:.
+│   server.js
+│
+├───config
+│       env.config.js
+│
+├───controllers
+│       messages.controller.js
+│
+├───database
+│   │   connect.js
+│   │
+│   └───models
+│           message.model.js
+│
+├───middlewares
+│       error.middleware.js
+│       pre_routes.middleware.js
+│       response.middleware.js
+│
+├───routes
+│       messages.routes.js
+│       router.js
+│
+├───services
+│       messages.service.js
+│
+└───utils
+        asyncHandler.utils.js
+        customError.utils.js
+        customLogger.utils.js
+        customResponse.utils.js
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+Clone repo to your local machine and run
 
-Say what the step will be
-
-```
-Give the example
+```javascript
+    npm install
 ```
 
-And repeat
+or
 
-```
-until finished
+```javascript
+yarn;
 ```
 
 End with an example of getting some data out of the system or using it for a little demo.
