@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js",
     "gen-docs": "jsdoc -c jsdoc.json"
   },
   "repository": {
